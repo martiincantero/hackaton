@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoDomotics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <button class="nav-button" data-section="home">Inicio</button>
+            <button class="nav-button" data-section="devices">Dispositivos</button>
+            <button class="nav-button" data-section="energy">Clima y Energía</button>
+            <button class="nav-button" data-section="admin">Administración</button>
+        </nav>
+
+        <!-- Sección de notificaciones -->
+        <div id="notifications" class="notifications"></div>
+
+        <!-- Secciones principales -->
+        <main>
+            <section id="home" class="section active">
+                <h1>NeoDomotics</h1>
+                <p>Estado general del sistema.</p>
+                <p>Bienvenido a tu app de domótica. Desde aquí puedes controlar y supervisar el estado de tu hogar.</p>
+                <p>Si tienes algún problema con nuestra app o necesitas contactar con nosotros directamente llama al +34 123456789 o envíanos un correo a soporte@neodomotics.es</p>
+                <a><img src="imagenes/neodonomics.png" width="300px"></a>
+            </section>
+            <section id="devices" class="section">
+                <h1>Dispositivos</h1>
+                <div class="device-grid">
+                    <div class="device-item">
+                        <img src="imagenes/lampara.png" alt="Luces">
+                        <button class="device-control" id="lights-control" data-status="off">Encender luces</button>
+                    </div>
+                    <div class="device-item">
+                        <img src="imagenes/image-removebg-preview.png" alt="Termostato">
+                        <button class="device-control" id="adjust-temperature">Ajustar temperatura</button>
+                        <input type="range" id="temperature-slider" min="15" max="30" value="22" style="display: none;" />
+                        <p id="temperature-value" style="display: none;">Temperatura: 22°C</p>
+                    </div>
+                </div>
+            </section>
+            <section id="energy" class="section">
+                <h1>Clima y Energía</h1>
+                <p><strong>Clima actual:</strong> Soleado, 25°C</p>
+                <p><strong>Consumo energético:</strong> 1.2 kWh</p>
+                <p>Monitorea el clima y optimiza el consumo de energía de tu hogar.</p>
+            </section>
+            <section id="admin" class="section">
+                <h1>Administración</h1>
+                <p>Configura tus dispositivos aquí.</p>
+                <button id="add-device" class="styled-button">Añadir dispositivo</button>
+                <p id="device-search-status" style="display: none;">Buscando...</p>
+                <br>
+                <p><button id="configure-devices" class="styled-button">Configurar dispositivos</button></p>
+                <div id="device-list" style="display: none;">
+                    <ul>
+                        <li>💡 Luces <button class="remove-device">Eliminar</button></li>
+                        <br>
+                        <li>🌡️ Termostato <button class="remove-device">Eliminar</button></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
