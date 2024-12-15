@@ -173,3 +173,65 @@ main {
 }
 
 
+
+
+
+/* Botón de alertas */
+.styled-button {
+    background-color: #ff0000; /* Verde */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.styled-button:hover {
+    background-color: #e01515; /* Verde más oscuro */
+}
+
+/* Panel de alertas */
+.alert-panel {
+    position: fixed;
+    top: 20%;
+    right: -300px; /* Oculto fuera de la pantalla */
+    width: 250px;
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    padding: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 100; /* Asegura que esté encima de otros elementos */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Ocultar y mostrar el panel */
+.alert-panel.hidden {
+    right: -300px; /* Mantenerlo fuera */
+}
+
+.alert-panel.visible {
+    right: 10px; /* Mostrarlo */
+}
+
+/* Estilo para el texto de las alertas */
+.alert {
+    margin: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert::before {
+    content: "⚠️"; /* Emoji de advertencia */
+    font-size: 20px;
+}
+
+

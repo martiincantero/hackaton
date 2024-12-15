@@ -80,6 +80,23 @@ document.querySelectorAll('.remove-device').forEach(button => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const alertsButton = document.getElementById("alerts-button");
+    const alertPanel = document.getElementById("alert-panel");
+
+    // Alternar el panel de alertas
+    alertsButton.addEventListener("click", () => {
+        if (alertPanel.classList.contains("hidden")) {
+            alertPanel.classList.remove("hidden");
+            alertPanel.classList.add("visible");
+        } else {
+            alertPanel.classList.remove("visible");
+            alertPanel.classList.add("hidden");
+        }
+    });
+});
+
+
 
 
 

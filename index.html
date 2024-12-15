@@ -1,105 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Infranet NEODOMOTICS - Domótica y Ciberseguridad">
-    <meta name="keywords" content="Domótica, Ciberseguridad, Hogar Inteligente, Tecnología">
-    <meta name="author" content="Infranet NEODOMOTICS">
-    <title>Infranet NEODOMOTICS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-green: #1abc9c;
-            --secondary-green: #16a085;
-            --dark-green: #0e6655;
-            --light-green: #d4efdf;
-            --text-color: #333333;
-            --background-color: #f7f9f9;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-            color: white;
-            padding: 20px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .content {
-            margin-top: 40px;
-        }
-
-        .buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .buttons a {
-            background: var(--dark-green);
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .buttons a:hover {
-            background: var(--secondary-green);
-            transform: translateY(-3px);
-        }
-
-        footer {
-            margin-top: 40px;
-            background: var(--dark-green);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        footer p {
-            margin: 0;
-        }
-    </style>
+    <title>NeoDomotics</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Infranet NEODOMOTICS</h1>
-    </header>
+    <div class="app-container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <button class="nav-button" data-section="home">Inicio</button>
+            <button class="nav-button" data-section="devices">Dispositivos</button>
+            <button class="nav-button" data-section="energy">Clima y Energía</button>
+            <button class="nav-button" data-section="admin">Administración</button>
+        </nav>
 
-    <div class="content">
-        <p>Bienvenido a nuestra plataforma de domótica y ciberseguridad.</p>
-        <div class="buttons">
-            <a href="aplicación.html">Acceso a la Aplicación</a>
-        </div>
+        <!-- Sección de notificaciones -->
+        <div id="notifications" class="notifications"></div>
+
+        <!-- Secciones principales -->
+        <main>
+            <section id="home" class="section active">
+                <h1>NeoDomotics</h1>
+                <p>Estado general del sistema.</p>
+                <p>Bienvenido a tu app de domótica. Desde aquí puedes controlar y supervisar el estado de tu hogar.</p>
+                <p>Si tienes algún problema con nuestra app o necesitas contactar con nosotros directamente llama al +34 123456789 o envíanos un correo a soporte@neodomotics.es</p>
+                <a><img src="imagenes/neodonomics.png" width="250px"></a>
+                <button id="alerts-button" class="styled-button">Ver Alertas</button>
+                <div id="alert-panel" class="alert-panel hidden">
+                    <p class="alert">La casa está demasiado fría</p>
+                    <p class="alert">La rumba ha terminado</p>
+                </div>
+            </section>
+            <section id="devices" class="section">
+                <h1>Dispositivos</h1>
+                <div class="device-grid">
+                    <div class="device-item">
+                        <img src="imagenes/lampara.png" alt="Luces">
+                        <button class="device-control" id="lights-control" data-status="off">Encender luces</button>
+                    </div>
+                    <div class="device-item">
+                        <img src="imagenes/image-removebg-preview.png" alt="Termostato">
+                        <button class="device-control" id="adjust-temperature">Ajustar temperatura</button>
+                        <input type="range" id="temperature-slider" min="15" max="30" value="22" style="display: none;" />
+                        <p id="temperature-value" style="display: none;">Temperatura: 22°C</p>
+                    </div>
+                </div>
+            </section>
+            <section id="energy" class="section">
+                <h1>Clima y Energía</h1>
+                <p><strong>Clima actual:</strong> Soleado, 25°C</p>
+                <p><strong>Consumo energético:</strong> 1.2 kWh</p>
+                <p>Monitorea el clima y optimiza el consumo de energía de tu hogar.</p>
+            </section>
+            <section id="admin" class="section">
+                <h1>Administración</h1>
+                <p>Configura tus dispositivos aquí.</p>
+                <button id="add-device" class="styled-button">Añadir dispositivo</button>
+                <p id="device-search-status" style="display: none;">Buscando...</p>
+                <br>
+                <p><button id="configure-devices" class="styled-button">Configurar dispositivos</button></p>
+                <div id="device-list" style="display: none;">
+                    <ul>
+                        <li>💡 Luces <button class="remove-device">Eliminar</button></li>
+                        <br>
+                        <li>🌡️ Termostato <button class="remove-device">Eliminar</button></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Infranet NEODOMOTICS. Todos los derechos reservados.</p>
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
