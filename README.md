@@ -15,7 +15,7 @@ Esta aplicación simula un entorno seguro para dispositivos inteligentes del hog
 ## Tecnologías Utilizadas 🛠️  
 - **HTML**: Estructura del proyecto.  
 - **CSS**: Diseño y estilo de la aplicación.  
-- **JavaScript (Opcional)**: Para funcionalidades adicionales (si aplica).  
+- **JavaScript**: Para funcionalidades adicionales.  
 
 ## Instalación y Uso  
 1. **Clona el repositorio**:  
